@@ -41,7 +41,7 @@ const theme = extendTheme({
     Button: {
       baseStyle: {
         color: "black",
-        fontWeight: "300 !important",
+        fontWeight: "300",
         borderRadius: "0.63em",
         _hover: {
           boxShadow: "rgba(99, 99, 99, 0.1) 0px 2px 8px 0px !important",
@@ -64,23 +64,23 @@ const theme = extendTheme({
           borderColor: "primary !important",
           fontFamily: "URW Gothic, sans-serif",
           color: "black !important",
-          padding: "1.2em 1.9em !important",
+          padding: "2.2em 3.6em !important",
           textDecoration: "none",
           fontSize: ".75em !important",
           textTransform: "uppercase",
           letterSpacing: ".15em",
-          fontweight: "700",
+          fontWeight: "700 !important",
           lineHeight: "1.2em",
         },
         primary: {
           bg: "primary !important",
           fontFamily: "URW Gothic, sans-serif",
-          padding: "1.2em 1.9em !important",
+          padding: "2.2em 3.6em !important",
           textDecoration: "none",
           fontSize: ".75em !important",
           textTransform: "uppercase",
           letterSpacing: ".15em",
-          fontweight: "700",
+          fontWeight: "700 !important",
           lineHeight: "1.2em",
         },
         form: {

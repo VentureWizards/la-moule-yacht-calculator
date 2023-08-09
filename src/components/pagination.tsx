@@ -20,7 +20,6 @@ const Pagination = () => {
     <Flex w="full" h="80px" justifyContent="center" gap="30px">
       {pageIndex !== maxIndex && (
         <>
-          {" "}
           <Button
             aria-label="Previous"
             isDisabled={pageIndex === 0}

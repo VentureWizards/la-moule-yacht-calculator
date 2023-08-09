@@ -107,7 +107,9 @@ const Slider = () => {
             }}
             showPopperArrow={true}
             withPortal
-            value={settings.date?.toDateString().replaceAll("/", ".")}
+            value={Intl.DateTimeFormat("de-DE", { dateStyle: "long" }).format(
+              settings.date
+            )}
           ></DatePicker>
         </Box>
       </FormControl>
@@ -175,7 +177,7 @@ const Slider = () => {
         </Flex>
       </FormControl>
     </Slide>,
-    <Slide title="Catering dazubuchen?" key={`calculator-slide-3`}>
+    <Slide title="Catering dazu buchen?" key={`calculator-slide-3`}>
       <Text>
         Für jedes Event bieten wir standardmäßig eine Getränkepauschale.
         Möchtest Du auch ein Fingerfood Buffet Catering dazu buchen?
@@ -242,7 +244,7 @@ const Slider = () => {
     <Slide title="" key={`calculator-slide-5`}>
       <Stack h="full" justify="center" align="center">
         <Heading as="h4">ANFRAGE ABGESENDET</Heading>
-        <Text>Wir melden uns in kürze bei dir.</Text>
+        <Text>Wir melden uns in Kürze bei dir.</Text>
       </Stack>
     </Slide>,
   ];
