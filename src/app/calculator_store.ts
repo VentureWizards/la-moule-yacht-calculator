@@ -215,11 +215,13 @@ const useCalculatorStore = create<CalculatorState>(
           occasion: settings.occasion
             ? getButtonTextFromOccasion(settings.occasion!)
             : undefined,
-          on_date: `${settings.date?.getDate()}/${settings.date?.getMonth()}/${settings.date?.getFullYear()}`,
+          on_date: Intl.DateTimeFormat("de-DE", {
+            dateStyle: "long",
+          }).format(settings.date),
           from_time: settings.time?.from.getHours(),
           until_time: settings.time?.until.getHours(),
           persons: settings.persons,
-          catering: settings.catering,
+          catering: settings.catering ? "Ja" : "Nein",
           price_rent: prices.rent,
           price_drinks: prices.drinks,
           price_catering: prices.catering,
