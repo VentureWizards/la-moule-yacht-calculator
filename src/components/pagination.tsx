@@ -12,6 +12,7 @@ const Pagination = () => {
     previousPage,
     canSubmit,
     submitForm,
+    isSubmitting,
   } = useCalculatorStore();
   const { setSlideDirection } = useAnimationStore();
 
@@ -42,6 +43,7 @@ const Pagination = () => {
             }}
             onMouseEnter={() => setSlideDirection(SlideDirection.next)}
             variant="primary"
+            isLoading={isSubmitting}
           >
             {pageIndex === maxIndex - 1 ? "JETZT ANFRAGEN" : "WEITER"}
           </Button>

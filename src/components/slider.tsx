@@ -19,7 +19,11 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { AnimatePresence } from "framer-motion";
-import { Occasion, useCalculatorStore } from "../app/calculator_store";
+import {
+  getButtonTextFromOccasion,
+  Occasion,
+  useCalculatorStore,
+} from "../app/calculator_store";
 import Slide from "./slide";
 import DatePicker, { CalendarContainer } from "react-datepicker";
 
@@ -75,7 +79,10 @@ const Slider = () => {
         ))}
       </SimpleGrid>
     </Slide>,
-    <Slide title="An welchem Datum?" key={`calculator-slide-1`}>
+    <Slide
+      title="Wann willst du das Eventboot buchen?"
+      key={`calculator-slide-1`}
+    >
       <FormControl>
         <FormLabel>Datum</FormLabel>
         <Box className="light-theme-original">
@@ -137,12 +144,12 @@ const Slider = () => {
           <RangeSliderThumb index={1} />
         </RangeSlider>
         <Flex justify="space-between">
-          <Text>{settings.time?.from.toLocaleTimeString()}</Text>
-          <Text>{settings.time?.until.toLocaleTimeString()}</Text>
+          <Text>{settings.time?.from.getHours()} Uhr</Text>
+          <Text>{settings.time?.until.getHours()} Uhr</Text>
         </Flex>
       </FormControl>
     </Slide>,
-    <Slide title="Wie viele Personen?" key={`calculator-slide-2`}>
+    <Slide title="Für wie viele Personen?" key={`calculator-slide-2`}>
       <FormControl>
         <FormLabel>Personen</FormLabel>
 
@@ -164,35 +171,33 @@ const Slider = () => {
           <SliderThumb />
         </ChakraSlider>
         <Flex justify="space-between">
-          <Text>{settings.persons}</Text>
+          <Text>{settings.persons} Personen</Text>
         </Flex>
       </FormControl>
     </Slide>,
-    <Slide
-      title="Für jedes Event bieten wir standardmäßig eine Getränkepauschale. Möchtest Du auch ein Fingerfood Buffet Catering dazu buchen?"
-      key={`calculator-slide-3`}
-    >
-      <FormControl>
-        <FormLabel>Catering</FormLabel>
-        <SimpleGrid columns={2} spacing="15px">
-          <Button
-            variant={!settings.catering ? "formSelected" : "form"}
-            // eslint-disable-next-line no-sequences
-            onClick={() => setSettings({ catering: false })}
-          >
-            Nein
-          </Button>
-          <Button
-            variant={settings.catering ? "formSelected" : "form"}
-            // eslint-disable-next-line no-sequences
-            onClick={() => setSettings({ catering: true })}
-          >
-            Ja
-          </Button>
-        </SimpleGrid>
-      </FormControl>
+    <Slide title="Catering dazubuchen?" key={`calculator-slide-3`}>
+      <Text>
+        Für jedes Event bieten wir standardmäßig eine Getränkepauschale.
+        Möchtest Du auch ein Fingerfood Buffet Catering dazu buchen?
+      </Text>
+      <SimpleGrid columns={2} spacing="15px">
+        <Button
+          variant={!settings.catering ? "formSelected" : "form"}
+          // eslint-disable-next-line no-sequences
+          onClick={() => setSettings({ catering: false })}
+        >
+          Nein
+        </Button>
+        <Button
+          variant={settings.catering ? "formSelected" : "form"}
+          // eslint-disable-next-line no-sequences
+          onClick={() => setSettings({ catering: true })}
+        >
+          Ja
+        </Button>
+      </SimpleGrid>
     </Slide>,
-    <Slide title="Yalla mach angaben" key={`calculator-slide-4`}>
+    <Slide title="Deine Angaben" key={`calculator-slide-4`}>
       <Formik
         initialValues={formValues}
         onSubmit={(values) => {}}
@@ -234,8 +239,11 @@ const Slider = () => {
         )}
       </Formik>
     </Slide>,
-    <Slide title="Anfrage wurde abgesendt!" key={`calculator-slide-5`}>
-      <></>
+    <Slide title="" key={`calculator-slide-5`}>
+      <Stack h="full" justify="center" align="center">
+        <Heading as="h4">ANFRAGE ABGESENDET</Heading>
+        <Text>Wir melden uns in kürze bei dir.</Text>
+      </Stack>
     </Slide>,
   ];
 
@@ -261,20 +269,5 @@ const Slider = () => {
     </Box>
   );
 };
-
-function getButtonTextFromOccasion(occasion: Occasion): string {
-  switch (occasion) {
-    case Occasion.wedding:
-      return "Hochzeit";
-    case Occasion.birthday:
-      return "Geburtstag";
-    case Occasion.companyevent:
-      return "Firmenfeier";
-    case Occasion.other:
-      return "Andere";
-  }
-}
-
-export { getButtonTextFromOccasion };
 
 export default Slider;

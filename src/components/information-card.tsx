@@ -42,13 +42,14 @@ const InformationCard = () => {
 
   return (
     <Stack
-      w={config.sizes.sliderWidth}
+      maxW={config.sizes.sliderWidth}
+      minW={"300px"}
+      w="full"
       minH={config.sizes.sliderHeight}
       //   boxShadow="rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;"
       borderRadius="12px"
       overflow="hidden"
       p="40px 30px"
-      alignItems="center"
       justify="space-between"
       flex="5"
     >

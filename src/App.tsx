@@ -15,13 +15,7 @@ import "./index.css";
 
 function App() {
   return (
-    <Flex
-      w="100vw"
-      minH="600px"
-      bg="background"
-      justify="center"
-      alignItems="center"
-    >
+    <Flex w="100vw" minH="600px" justify="center" alignItems="center">
       <Flex
         w="full"
         justify="space-between"

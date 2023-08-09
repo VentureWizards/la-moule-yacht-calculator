@@ -22,7 +22,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && cp build/static/js/main*.js dist/main.min.js && cp build/static/css/main*.css dist/main.min.css",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

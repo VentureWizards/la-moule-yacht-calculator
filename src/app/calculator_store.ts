@@ -2,13 +2,31 @@ import { create, State, StateCreator, StoreMutatorIdentifier } from "zustand";
 import appConfig from "../config/config";
 
 import emailjs from "@emailjs/browser";
-import { getButtonTextFromOccasion } from "../components/slider";
 
 export enum Occasion {
   wedding = "wedding",
   birthday = "birthday",
   companyevent = "companyevent",
+  jga = "jga",
+  babyshower = "babyshower",
   other = "other",
+}
+
+function getButtonTextFromOccasion(occasion: Occasion): string {
+  switch (occasion) {
+    case Occasion.wedding:
+      return "Hochzeit";
+    case Occasion.birthday:
+      return "Geburtstag";
+    case Occasion.companyevent:
+      return "Firmenevent";
+    case Occasion.jga:
+      return "JGA";
+    case Occasion.babyshower:
+      return "Baby Shower";
+    case Occasion.other:
+      return "Andere";
+  }
 }
 
 interface CalculatorSettings {
@@ -49,6 +67,7 @@ interface CalculatorState {
   canSubmit: boolean;
   setCanSubmit: (value: boolean) => void;
   submitForm: () => Promise<void>;
+  isSubmitting: boolean;
   setSettings: (settings: CalculatorSettings) => void;
   setPrices: (prices: Partial<Prices>) => void;
   setFormValues: (values: FormValues) => void;
@@ -179,8 +198,11 @@ const useCalculatorStore = create<CalculatorState>(
         };
       }),
     canSubmit: false,
+    isSubmitting: false,
     setCanSubmit: (value) => set({ canSubmit: value }),
     submitForm: async () => {
+      set({ isSubmitting: true });
+
       const state = get();
       const settings = state.settings;
       const prices = state.prices;
@@ -210,8 +232,10 @@ const useCalculatorStore = create<CalculatorState>(
         },
         "xIs4SYBfzX2KJg94H"
       );
+
+      set({ isSubmitting: false });
     },
   }))
 );
 
-export { useCalculatorStore };
+export { useCalculatorStore, getButtonTextFromOccasion };
