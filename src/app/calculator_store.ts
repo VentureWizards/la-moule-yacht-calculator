@@ -209,8 +209,8 @@ const useCalculatorStore = create<CalculatorState>(
       const formValues = state.formValues;
 
       await emailjs.send(
-        "service_o75m9ax",
-        "template_zjd2qro",
+        "service_rjx2pkc",
+        "template_e4gfhgb",
         {
           occasion: settings.occasion
             ? getButtonTextFromOccasion(settings.occasion!)
@@ -232,7 +232,7 @@ const useCalculatorStore = create<CalculatorState>(
           sender_phone: formValues.phone,
           sender_company: formValues.company,
         },
-        "xIs4SYBfzX2KJg94H"
+        "QHeeMOE59AvGtveix"
       );
 
       set({ isSubmitting: false });
