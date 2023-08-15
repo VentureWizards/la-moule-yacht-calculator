@@ -22,22 +22,23 @@ const InformationCard = () => {
     { label: `Strom und Heizkosten`, value: "inklusive" },
     { label: `Musikanlage`, value: "inklusive" },
     {
-      label: `1x Eventmanager mit Bootsführerschein für ${hours + 2}h`,
+      label: `1x Eventmanager mit Bootsführerschein für ${hours}h`,
       value: "inklusive",
     },
     {
-      label: `1x Service-Personal für ${hours + 2}h`,
+      label: `1x Service-Personal für ${hours}h`,
       value: "inklusive",
     },
     {
-      label: `Getränkepauschale für ${settings.persons} Personen x ${hours}h x ${config.prices.drinksPerPersonPerHour}€`,
+      label: `Getränkepauschale für ${settings.persons} Personen`,
       value: `${prices.drinks}€`,
     },
     {
-      label: `Fingerfood Buffet Catering für ${settings.persons} Personen x ${hours}h x ${config.prices.cateringPerPersonPerHour}€`,
+      label: `Fingerfood Buffet Catering für ${settings.persons} Personen`,
       value: `${prices.catering}€`,
     },
     { label: `Reinigungspauschale`, value: `${prices.cleaning}€` },
+    { label: "Sonderwünsche", value: "nach Absprache" },
   ];
 
   return (

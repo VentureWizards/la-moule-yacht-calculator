@@ -236,6 +236,12 @@ const Slider = () => {
                 type="text"
                 placeholder="Firmenname (Optional)"
               />
+              <Field
+                as={Input}
+                name="specialwishes"
+                type="text"
+                placeholder="Sonderwünsche (Optional)"
+              />
             </Stack>
           </form>
         )}
