@@ -45,7 +45,7 @@ interface FormValues {
   email: string;
   phone: string;
   company: string;
-  extrawishes: string;
+  specialwishes: string;
 }
 
 interface Prices {
@@ -135,7 +135,7 @@ const useCalculatorStore = create<CalculatorState>(
       name: "",
       company: "",
       phone: "",
-      extrawishes: "",
+      specialwishes: "",
     },
     setFormValues: (values: FormValues) => set({ formValues: values }),
     settings: {
@@ -233,7 +233,7 @@ const useCalculatorStore = create<CalculatorState>(
           sender_email: formValues.email,
           sender_phone: formValues.phone,
           sender_company: formValues.company,
-          sender_extrawishes: formValues.extrawishes,
+          sender_specialwishes: formValues.specialwishes,
         },
         "QHeeMOE59AvGtveix"
       );
