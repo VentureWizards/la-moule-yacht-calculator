@@ -19,7 +19,7 @@ const config = {
   prices: {
     boatPerHour: 400,
     drinksPerPersonPerHour: 10,
-    cateringPerPersonPerHour: 35,
+    cateringPerPerson: 35,
     cleaningFee: 200,
   },
   defaults: {

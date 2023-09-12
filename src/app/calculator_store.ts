@@ -112,9 +112,7 @@ const middleware: MiddlewareImpl = (config) => (set, get, api) =>
           (settings.persons ?? 0) *
           appConfig.prices.drinksPerPersonPerHour,
         catering: settings.catering
-          ? hours *
-            (settings.persons ?? 0) *
-            appConfig.prices.cateringPerPersonPerHour
+          ? (settings.persons ?? 0) * appConfig.prices.cateringPerPerson
           : 0,
         cleaning: appConfig.prices.cleaningFee,
       };
