@@ -54,6 +54,8 @@ interface Prices {
   drinks: number;
   catering: number;
   cleaning: number;
+  skipper: number;
+  perPerson: number;
 }
 
 interface CalculatorState {
@@ -115,10 +117,13 @@ const middleware: MiddlewareImpl = (config) => (set, get, api) =>
           ? (settings.persons ?? 0) * appConfig.prices.cateringPerPerson
           : 0,
         cleaning: appConfig.prices.cleaningFee,
+        skipper: appConfig.prices.skipperPerHour * hours,
       };
 
       prices.total =
         prices.rent + prices.drinks + prices.catering + prices.cleaning;
+
+      prices.perPerson = settings.persons ? prices.total / settings.persons : 0;
 
       api.setState({ allowedIndex, prices });
     },
@@ -150,6 +155,8 @@ const useCalculatorStore = create<CalculatorState>(
       drinks: 0,
       catering: 0,
       cleaning: appConfig.prices.cleaningFee,
+      skipper: 0,
+      perPerson: 0,
     },
 
     pageIndex: 0,

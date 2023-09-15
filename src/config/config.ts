@@ -21,6 +21,7 @@ const config = {
     drinksPerPersonPerHour: 10,
     cateringPerPerson: 35,
     cleaningFee: 200,
+    skipperPerHour: 40,
   },
   defaults: {
     time: {

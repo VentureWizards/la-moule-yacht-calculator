@@ -22,7 +22,7 @@ const InformationCard = () => {
     { label: `Strom und Heizkosten`, value: "inklusive" },
     { label: `Musikanlage`, value: "inklusive" },
     {
-      label: `1x Eventmanager mit Bootsführerschein für ${hours}h`,
+      label: `1x Eventmanager für ${hours}h`,
       value: "inklusive",
     },
     {
@@ -38,6 +38,7 @@ const InformationCard = () => {
       value: `${prices.catering}€`,
     },
     { label: `Reinigungspauschale`, value: `${prices.cleaning}€` },
+    { label: `Skipper (extern) für ${hours}h`, value: `${prices.skipper}€` },
     { label: "Sonderwünsche", value: "nach Absprache" },
   ];
 
@@ -86,7 +87,21 @@ const InformationCard = () => {
           }
           €
         </Heading>
-        <Text fontSize="sm">zzgl. MwSt.</Text>
+        <Text fontSize="sm" fontWeight="normal">
+          Preis p.P.{" "}
+          {
+            new Intl.NumberFormat("de-DE", {
+              style: "currency",
+              currency: "EUR",
+            })
+              .format(prices.perPerson)
+              .split(",")[0]
+          }
+          €
+        </Text>
+        <Text fontSize="sm" fontWeight="thin">
+          zzgl. MwSt.
+        </Text>
       </Stack>
     </Stack>
   );
