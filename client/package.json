@@ -24,7 +24,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && cp build/static/js/main*.js dist/main.min.js && cp build/static/css/main*.css dist/main.min.css",
+    "build": "react-scripts build && cp build/static/js/main*.js dist/main.min.js && cp build/static/css/main*.css dist/main.min.css && cp build/static/js/*.chunk.js dist/chunk.min.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
