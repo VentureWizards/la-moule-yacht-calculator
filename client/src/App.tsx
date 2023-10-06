@@ -28,8 +28,6 @@ function App() {
           .format(date)
           .toLowerCase();
 
-        console.log(month, weekday);
-
         return await getMonthPricing(month, weekday);
       },
       onSuccess(data) {
