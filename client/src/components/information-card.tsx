@@ -3,7 +3,7 @@ import { useCalculatorStore } from "../app/calculator_store";
 import config from "../config/config";
 
 const InformationCard = () => {
-  const { settings, prices } = useCalculatorStore();
+  const { settings, prices, priceConfig } = useCalculatorStore();
 
   const hours =
     (settings.time?.until.getHours() ?? 0) -
@@ -11,7 +11,7 @@ const InformationCard = () => {
 
   const values = [
     {
-      label: `Miete für Bootsfahrt ${hours}h x ${config.prices.boatPerHour}€`,
+      label: `Miete für Bootsfahrt ${hours}h`,
       value: `${prices.rent}€`,
     },
     { label: `Bootsfahrt für ${hours}h`, value: "inklusive" },
