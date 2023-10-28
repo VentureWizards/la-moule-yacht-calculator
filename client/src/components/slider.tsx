@@ -119,7 +119,7 @@ const Slider = () => {
         <RangeSlider
           isDisabled={!settings.date}
           min={9}
-          max={21}
+          max={22}
           minStepsBetweenThumbs={4}
           defaultValue={[12, 16]}
           onChange={(value) => {
