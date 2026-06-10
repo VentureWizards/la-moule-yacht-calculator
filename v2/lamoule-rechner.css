@@ -1,0 +1,237 @@
+/*
+  La Moule Yacht â€“ Angebotsrechner (Styles)
+  Wird zusammen mit lamoule-rechner.js eingebunden.
+  Alle Regeln sind auf #price-calculator-root begrenzt,
+  damit nichts mit den Webflow-Styles kollidiert.
+*/
+
+#price-calculator-root{
+  --lmy-primary:#EEC570;
+  --lmy-surface:#ECE6DB;
+  --lmy-text:#1a1a1a;
+  --lmy-border-light:#d0d5dd;
+  --lmy-sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --lmy-serif:"Fraunces",Georgia,serif;
+
+  max-width:1000px;
+  margin:0 auto;
+  padding:30px 20px;
+  color:var(--lmy-text);
+  font-family:var(--lmy-serif);
+}
+#price-calculator-root *{ box-sizing:border-box; }
+
+#price-calculator-root .calc-layout{
+  display:grid;
+  grid-template-columns:1fr 2px 1fr;
+  gap:0 30px;
+  align-items:start;
+}
+#price-calculator-root .calc-divider{
+  background:#555;
+  width:2px;
+  height:100%;
+  min-height:600px;
+}
+@media (max-width:760px){
+  #price-calculator-root .calc-layout{ grid-template-columns:1fr; }
+  #price-calculator-root .calc-divider{ display:none; }
+  #price-calculator-root .calc-right{ margin-top:40px; }
+}
+
+/* ---------- Ãœberschriften ---------- */
+#price-calculator-root .calc-title{
+  font-family:var(--lmy-sans);
+  font-size:24px;
+  font-weight:700;
+  text-align:center;
+  margin:10px 0 30px;
+}
+
+/* ---------- Auswahl-Buttons ---------- */
+#price-calculator-root .calc-options{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(120px, 150px));
+  gap:18px 25px;
+  justify-content:center;
+}
+#price-calculator-root .calc-option{
+  font-family:var(--lmy-serif);
+  font-size:16px;
+  padding:9px 14px;
+  background:#fff;
+  color:var(--lmy-text);
+  border:1px solid var(--lmy-text);
+  border-radius:10px;
+  cursor:pointer;
+  text-align:center;
+  transition:background .15s ease,color .15s ease;
+}
+#price-calculator-root .calc-option.pill{ border-radius:999px; }
+#price-calculator-root .calc-option.selected{
+  background:#000;
+  color:#fff;
+  border-color:#000;
+}
+#price-calculator-root .calc-option.wide{ grid-column:1 / -1; }
+
+#price-calculator-root .calc-intro{
+  font-family:var(--lmy-serif);
+  font-size:17px;
+  text-align:center;
+  max-width:340px;
+  margin:0 auto 28px;
+  line-height:1.5;
+}
+
+/* ---------- Felder ---------- */
+#price-calculator-root .calc-label{
+  font-family:var(--lmy-sans);
+  font-size:14px;
+  color:#555;
+  display:block;
+  margin:22px 0 8px;
+}
+#price-calculator-root .calc-input{
+  width:100%;
+  padding:10px 14px;
+  font-family:var(--lmy-sans);
+  font-size:15px;
+  background:#fff;
+  border:1px solid var(--lmy-border-light);
+  border-radius:8px;
+  color:var(--lmy-text);
+}
+#price-calculator-root .calc-input::placeholder{ color:#98a2b3; }
+#price-calculator-root .calc-form .calc-input{ margin-bottom:14px; }
+
+/* ---------- Schieberegler ---------- */
+#price-calculator-root .calc-slider{
+  position:relative;
+  height:20px;
+  margin:14px 2px 6px;
+}
+#price-calculator-root .calc-slider .track,
+#price-calculator-root .calc-slider .fill{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  height:4px;
+  border-radius:2px;
+}
+#price-calculator-root .calc-slider .track{ left:0; right:0; background:#dde3ec; }
+#price-calculator-root .calc-slider .fill{ background:#555; }
+#price-calculator-root .calc-slider input[type=range]{
+  position:absolute;
+  inset:0;
+  width:100%;
+  margin:0;
+  -webkit-appearance:none;
+  appearance:none;
+  background:transparent;
+  pointer-events:none;
+}
+#price-calculator-root .calc-slider input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;
+  appearance:none;
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  background:#fff;
+  border:1px solid #c5ccd6;
+  box-shadow:0 1px 4px rgba(0,0,0,.35);
+  cursor:pointer;
+  pointer-events:auto;
+}
+#price-calculator-root .calc-slider input[type=range]::-moz-range-thumb{
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  background:#fff;
+  border:1px solid #c5ccd6;
+  box-shadow:0 1px 4px rgba(0,0,0,.35);
+  cursor:pointer;
+  pointer-events:auto;
+}
+#price-calculator-root .calc-slider-values{
+  display:flex;
+  justify-content:space-between;
+  font-family:var(--lmy-serif);
+  font-size:17px;
+}
+#price-calculator-root .calc-slider-values.single{ justify-content:flex-start; }
+
+/* ---------- Navigation ---------- */
+#price-calculator-root .calc-nav{
+  display:flex;
+  gap:35px;
+  margin-top:45px;
+}
+#price-calculator-root .calc-btn{
+  font-family:var(--lmy-serif);
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  padding:15px 26px;
+  border-radius:6px;
+  cursor:pointer;
+  border:1px solid var(--lmy-primary);
+  transition:opacity .15s ease;
+}
+#price-calculator-root .calc-btn.prev{ background:#fff; color:var(--lmy-text); }
+#price-calculator-root .calc-btn.next{ background:var(--lmy-primary); color:var(--lmy-text); border-color:var(--lmy-primary); }
+#price-calculator-root .calc-btn:disabled{ opacity:.45; cursor:not-allowed; }
+
+/* ---------- PreisÃ¼bersicht ---------- */
+#price-calculator-root .calc-right-title{
+  font-family:var(--lmy-sans);
+  font-size:24px;
+  font-weight:700;
+  text-align:center;
+  margin:10px 0 25px;
+}
+#price-calculator-root .calc-summary-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding:7px 10px;
+  font-family:var(--lmy-serif);
+  font-size:14px;
+}
+#price-calculator-root .calc-summary-row:nth-child(even){ background:var(--lmy-surface); }
+#price-calculator-root .calc-summary-row .val{ white-space:nowrap; }
+#price-calculator-root .calc-total{
+  text-align:center;
+  margin-top:35px;
+}
+#price-calculator-root .calc-total .big{
+  font-family:var(--lmy-sans);
+  font-size:30px;
+  font-weight:700;
+}
+#price-calculator-root .calc-total .pp{
+  font-family:var(--lmy-serif);
+  font-size:16px;
+  font-weight:600;
+  margin-top:4px;
+}
+#price-calculator-root .calc-total .vat{
+  font-family:var(--lmy-serif);
+  font-size:13px;
+  color:#666;
+  margin-top:2px;
+}
+
+#price-calculator-root .calc-toast{
+  margin-top:16px;
+  padding:13px;
+  border-radius:8px;
+  text-align:center;
+  font-family:var(--lmy-serif);
+  font-size:15px;
+}
+#price-calculator-root .calc-toast.success{ background:#dff3e0; color:#1f6e2c; }
+#price-calculator-root .calc-toast.error{ background:#fbe1e1; color:#a32424; }
+#price-calculator-root .calc-hidden{ display:none !important; }
