@@ -1,5 +1,5 @@
 /*
-  La Moule Yacht â€“ Angebotsrechner (Styles)
+  La Moule Yacht – Angebotsrechner (Styles)
   Wird zusammen mit lamoule-rechner.js eingebunden.
   Alle Regeln sind auf #price-calculator-root begrenzt,
   damit nichts mit den Webflow-Styles kollidiert.
@@ -39,7 +39,7 @@
   #price-calculator-root .calc-right{ margin-top:40px; }
 }
 
-/* ---------- Ãœberschriften ---------- */
+/* ---------- Überschriften ---------- */
 #price-calculator-root .calc-title{
   font-family:var(--lmy-sans);
   font-size:24px;
@@ -164,6 +164,7 @@
 /* ---------- Navigation ---------- */
 #price-calculator-root .calc-nav{
   display:flex;
+  justify-content:center;
   gap:35px;
   margin-top:45px;
 }
@@ -183,7 +184,7 @@
 #price-calculator-root .calc-btn.next{ background:var(--lmy-primary); color:var(--lmy-text); border-color:var(--lmy-primary); }
 #price-calculator-root .calc-btn:disabled{ opacity:.45; cursor:not-allowed; }
 
-/* ---------- PreisÃ¼bersicht ---------- */
+/* ---------- Preisübersicht ---------- */
 #price-calculator-root .calc-right-title{
   font-family:var(--lmy-sans);
   font-size:24px;
